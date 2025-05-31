@@ -1,48 +1,10 @@
 import ButtonInput from "../atoms/ButtonInput";
-import { Fly, Planner, Layer } from "../../assets";
 import { useNavigate } from "react-router-dom";
+import { LandingPageTextContent } from "../../constants/textContentConstants";
 
 export const NewSection3 = () => {
   const navigate = useNavigate();
-  const products = [
-    {
-      id: 1,
-      icon: <img src={Layer} alt="layer" />,
-      textColor: "text-[#438061]",
-      bgColor: "bg-[#F0FFEB]",
-      buttonBg: "bg-[#438061]",
-      hoverText: "hover:text-[#F0FFEB]",
-      hoverBg: "hover:bg-[#438061]",
-      heading: "Layer",
-      subHeading: "DATA MANAGEMENT PLATFORM",
-      para: "Unprecedented access to 800+ OOH &DOOH media units via multiple purchase agreements media owners & through programmatic SSP integrations.",
-      redirect: "/products/Layer",
-    },
-    {
-      id: 2,
-      icon: <img src={Fly} alt="fly" />,
-      textColor: "text-[#4E64EE]",
-      bgColor: "bg-[#F2F4FF]",
-      hoverText: "hover:text-[#F2F4FF]",
-      hoverBg: "hover:bg-[#4E64EE]",
-      heading: "Fly",
-      subHeading: "CONTENT MANAGEMENT SYSTEM",
-      para: "Unprecedented access to 800+ OOH &DOOH media units via multiple purchase agreements media owners & through programmatic SSP integrations.",
-      redirect: "/products/Fly",
-    },
-    {
-      id: 3,
-      icon: <img src={Planner} alt="planner" />,
-      textColor: "text-[#129BFF]",
-      bgColor: "bg-[#EEFAFF]",
-      hoverText: "hover:text-[#EEFAFF]",
-      hoverBg: "hover:bg-[#129BFF]",
-      heading: "Planner",
-      subHeading: "DOOH PLANNING TOOL",
-      para: "Unprecedented access to 800+ OOH &DOOH media units via multiple purchase agreements media owners & through programmatic SSP integrations.",
-      redirect: "/products/Planner",
-    },
-  ];
+  
 
   return (
     <div className="z-10 font-custom flex flex-col justify-center items-center pt-20">
@@ -53,10 +15,10 @@ export const NewSection3 = () => {
         OUR <span className="text-[#129BFF] font-bold">DOOH</span> Lineup
       </p>
       <h1 className="font-medium text-[48px] text-[#1E376E]">
-        Built For Modern Advertising
+        {LandingPageTextContent?.section3?.subHeading}
       </h1>
       <div className="grid grid-cols-3 gap-4 pt-8 px-36">
-        {products?.map((product: any) => (
+        {LandingPageTextContent?.section3?.products?.map((product: any) => (
           <div
             key={product.id}
             onClick={() => navigate(product.redirect)}
