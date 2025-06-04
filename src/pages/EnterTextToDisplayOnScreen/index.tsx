@@ -15,7 +15,7 @@ export function EnterTextToDisplayOnScreen() {
       return;
     }
     try {
-      const { data } = await axios.post(`${url}/addText`, { text: value });
+      const { data } = await axios.post(`${url}/addText`, { text: `https://store-files-in-s3.s3.ap-south-1.amazonaws.com/${value}` });
       message.success(
         "Successfully send, please wait it will display on screen"
       );
@@ -25,7 +25,7 @@ export function EnterTextToDisplayOnScreen() {
     }
   };
   return (
-    <div className="h-screen w-screen bg-[#F3CF57] p-8">
+    <div className="h-screen w-screen bg-[#FFD300] p-8">
       <div className="mt-16 flex flex-col justify-center  items-center text-[#000000]">
         <p className="text-center text-[#1A1A1A]  text-[20px] font-black">
           Welcome To
