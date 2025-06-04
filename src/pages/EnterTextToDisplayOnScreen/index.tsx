@@ -8,18 +8,22 @@ const url = `${process.env.REACT_APP_PROOH_SERVER}/api/v2/screens`;
 
 export function EnterTextToDisplayOnScreen() {
   const [value, setValue] = useState<string>();
+  const [loading, setLoading] = useState<boolean>(false);
 
   const handleClick = async () => {
+    setLoading(true);
     if (value?.length === 0) {
       message.error("Please write some thing in text");
       return;
     }
     try {
       const { data } = await axios.post(`${url}/addText`, { text: `https://store-files-in-s3.s3.ap-south-1.amazonaws.com/${value}` });
+      setLoading(false);
       message.success(
         "Successfully send, please wait it will display on screen"
       );
     } catch (error) {
+      setLoading(false);
       message.error("Something went wrong!");
       console.log(error);
     }
@@ -38,11 +42,11 @@ export function EnterTextToDisplayOnScreen() {
       </div>
       <div className="mt-16 flex flex-col gap-8">
         <TextArea
-          maxLength={30}
+          maxLength={50}
           onChange={(e: any) => setValue(e.target.value)}
           value={value}
           placeholder="Enter Text To Display On Screen"
-          autoSize={{ minRows: 4, maxRows: 10 }}
+          autoSize={{ minRows: 4, maxRows: 1 }}
           className="text-[24px] rounded-lg "
         />
         <button
@@ -52,6 +56,11 @@ export function EnterTextToDisplayOnScreen() {
           Send
         </button>
       </div>
+      {loading && (
+        <div className="flex items-center justify-center py-8">
+          <i className="fi fi-sr-rotate-right text-white text-[36px] flex items-center justify-center animate-spin"></i>
+        </div>
+      )}
     </div>
   );
 }
