@@ -10,6 +10,7 @@ import {
   BrandAgencyPage,
   PageNotFound,
   DataHeroPage,
+  EnterTextToDisplayOnScreen,
 } from "../pages";
 
 import {
@@ -81,6 +82,11 @@ const Routers: React.FC = () => {
             </AppDashBoardLayout>
           }
         />
+        <Route
+          path={"/displayOnScreen"}
+          element={<EnterTextToDisplayOnScreen />}
+        />
+
         <Route path={PLAY_LIVE_URL} element={<PlayLiveUrl />} />
         <Route path={BRAND_AGENCY_PAGE} element={<BrandAgencyPage />} />
 

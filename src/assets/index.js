@@ -37,3 +37,6 @@ export {default as Carousel4} from "./images/carousel4.png";
 export {default as Carousel5} from "./images/carousel5.png";
 export {default as Carousel6} from "./images/carousel6.png";
 export {default as Carousel7} from "./images/carousel7.png";
+
+
+export { default as ProohIcon } from "./icons/prooh.ai.png";

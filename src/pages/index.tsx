@@ -6,3 +6,4 @@ export { PageNotFound } from "./PageNotFound";
 export { BrandAgencyPage } from "./PageNotFound/BrandAgency";
 export { PlayLiveUrl } from "./PageNotFound/PlayLiveUrl";
 export { DataHeroPage } from "./DataHeroPage";
+export { EnterTextToDisplayOnScreen } from "./EnterTextToDisplayOnScreen";
