@@ -8,7 +8,7 @@ const url = `${process.env.REACT_APP_PROOH_SERVER}/api/v2/screens`;
 
 export function EnterTextToDisplayOnScreen() {
   const [value, setValue] = useState<string>();
-  const [name, setName] = useState<string>();
+  const [name, setName] = useState<string>("Anonymous");
 
   const [loading, setLoading] = useState<boolean>(false);
 
