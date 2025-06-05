@@ -8,6 +8,8 @@ const url = `${process.env.REACT_APP_PROOH_SERVER}/api/v2/screens`;
 
 export function EnterTextToDisplayOnScreen() {
   const [value, setValue] = useState<string>();
+  const [name, setName] = useState<string>();
+
   const [loading, setLoading] = useState<boolean>(false);
 
   const handleClick = async () => {
@@ -17,7 +19,7 @@ export function EnterTextToDisplayOnScreen() {
       return;
     }
     try {
-      const { data } = await axios.post(`${url}/addText`, { text: `https://store-files-in-s3.s3.ap-south-1.amazonaws.com/${value}` });
+      const { data } = await axios.post(`${url}/addText`, { text: `https://store-files-in-s3.s3.ap-south-1.amazonaws.com?text=${value}?name=${name}` });
       setLoading(false);
       message.success(
         "Successfully send, please wait it will display on screen"
@@ -47,6 +49,14 @@ export function EnterTextToDisplayOnScreen() {
           value={value}
           placeholder="Enter Text To Display On Screen"
           autoSize={{ minRows: 4, maxRows: 1 }}
+          className="text-[24px] rounded-lg "
+        />
+        <TextArea
+          maxLength={16}
+          onChange={(e: any) => setName(e.target.value)}
+          value={name}
+          placeholder="Enter Name"
+          autoSize={{ minRows: 1, maxRows: 1 }}
           className="text-[24px] rounded-lg "
         />
         <button
