@@ -8,7 +8,7 @@ const url = `${process.env.REACT_APP_PROOH_SERVER}/api/v2/screens`;
 
 export function EnterTextToDisplayOnScreen() {
   const [value, setValue] = useState<string>();
-  const [name, setName] = useState<string>("Anonymous");
+  const [name, setName] = useState<string>("");
 
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -19,7 +19,7 @@ export function EnterTextToDisplayOnScreen() {
       return;
     }
     try {
-      const { data } = await axios.post(`${url}/addText`, { text: `https://store-files-in-s3.s3.ap-south-1.amazonaws.com/abcd?text=${value}&name=${name}` });
+      const { data } = await axios.post(`${url}/addText`, { text: `https://store-files-in-s3.s3.ap-south-1.amazonaws.com/abcd?text=${value}&name=${name === "" ? "Anonymous": name}` });
       setLoading(false);
       message.success(
         "Successfully send, please wait it will display on screen"
@@ -32,14 +32,14 @@ export function EnterTextToDisplayOnScreen() {
   };
   return (
     <div className="h-screen w-screen bg-[#f70303] p-8">
-      <div className="mt-16 flex flex-col justify-center  items-center text-[#000000]">
-        <p className="text-center text-[#1A1A1A]  text-[20px] font-black">
+      <div className="mt-16 flex flex-col justify-center  items-center text-[#ffffff]">
+        <p className="text-center text-[#ffffff]  text-[20px] font-black">
           Welcome To
         </p>
         <img
           src={ProohIcon}
           alt="PROOH.AI"
-          className="mt-2 h-[42px] w-[215px]"
+          className="filter grayscale invert contrast-100 mt-2 h-[42px] w-[215px]"
         />
       </div>
       <div className="mt-16 flex flex-col gap-8">
@@ -61,7 +61,7 @@ export function EnterTextToDisplayOnScreen() {
         />
         <button
           onClick={handleClick}
-          className="rounded-full py-4 text-[20px] font-semibold bg-[#000000] text-[#ffffff]"
+          className="rounded-full py-4 text-[20px] font-semibold bg-[#ffffff] text-[#f70303]"
         >
           Send
         </button>
