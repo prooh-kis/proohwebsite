@@ -31,7 +31,7 @@ export function EnterTextToDisplayOnScreen() {
     }
   };
   return (
-    <div className="h-screen w-screen bg-[#FFD300] p-8">
+    <div className="h-screen w-screen bg-[#f70303] p-8">
       <div className="mt-16 flex flex-col justify-center  items-center text-[#000000]">
         <p className="text-center text-[#1A1A1A]  text-[20px] font-black">
           Welcome To
