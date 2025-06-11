@@ -19,7 +19,9 @@ export function EnterTextToDisplayOnScreen() {
       return;
     }
     try {
-      const { data } = await axios.post(`${url}/addText`, { text: `https://store-files-in-s3.s3.ap-south-1.amazonaws.com/abcd?text=${value}&name=${name === "" ? "Anonymous": name}` });
+      // const { data } = await axios.post(`${url}/addText`, { text: `https://store-files-in-s3.s3.ap-south-1.amazonaws.com/abcd?text=${value}&name=${name === "" ? "Anonymous": name}` });
+      const { data } = await axios.post(`${url}/addText`, { text: `https://store-files-in-s3.s3.ap-south-1.amazonaws.com/abcd?text=${value}&name=${name === "" ? "Anonymous": name}&xAxis=8&yAxis=8&textColor=f70303&imgUrl=https://store-files-in-s3.s3.ap-south-1.amazonaws.com/ns_bg.jpg` });
+
       setLoading(false);
       message.success(
         "Successfully send, please wait it will display on screen"
